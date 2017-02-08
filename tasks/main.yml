@@ -1,0 +1,10 @@
+---
+# tasks file for apigee-opdk-baas-cassandra-cron-flush
+
+- name: Flush Cassandra locks
+  cron:
+    backup: yes
+    state: present
+    name: 'flush cassandra locks'
+    special_time: hourly
+    job: '{{ nodetool }} flush Apigee_Baas_Locks'
